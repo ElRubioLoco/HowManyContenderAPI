@@ -6,15 +6,44 @@ Code for the server I use to get all data I need from Nadeo API
 ### On debian based OS
 
 1. Install python 3.11 
->```sudo apt install python3.11```
+
+```bash 
+sudo apt install python3.11
+```
+
 2. Install virtualenv
->```sudo apt install virtualenv```
+
+```bash
+sudo apt install virtualenv
+```
+
 3. Create virtual environment
->```virtualenv -p /usr/bin/python3.11 env```
+
+```bash
+virtualenv -p /usr/bin/python3.11 env
+```
+
 4. Activate virtual environment
->```source env/bin/activate```
+
+```bash 
+source env/bin/activate
+ ```
+
 5. Install all requirements of the server
->```pip install -r requirements.txt```
+
+```bash
+ pip install -r requirements.txt
+```
+
+6. Create src/utils/authenticate.txt file
+
+> This file only contains one line : email@adress.com:password
+> <br>Email and password are the identifiers of the Ubisoft connect account you want to use
+
+7. Start server
+```bash
+python App.py
+```
 
 ## License
 2023 Martin CORNU-MANSUY martin2001.cornumansuy@gmail.com
