@@ -12,14 +12,23 @@ def authenticate():
     res = app.authenticate(Audiences.NADEOLIVESERVICES)
     if not res.get(RequestKeys.ERROR.value) is None:
         return handle_internal_server_error(res.get(RequestKeys.ERROR.value))
-    return Response(prepare_to_send(res), 200)
+    return Response(prepare_to_send({RequestKeys.MESSAGE: "The server is now authenticated to Nadeo live services"}), 200)
+
+
+@app.route("/refresh-tokens", methods=[Methods.GET])
+def refresh_tokens():
+    try:
+        app.refresh_token()
+        return Response(prepare_to_send({RequestKeys.MESSAGE: "The server refreshed is authentication tokens successfully"}), 200)
+    except ConnectionError as err:
+        return Response(prepare_to_send({RequestKeys.MESSAGE: str(err)}))
 
 
 ### Map ###
 
 @app.route("/map/playerCount", methods=[Methods.POST])
 def get_map_player_count():
-    return Response(app.get_player_count(request.form[RequestKeys.MAPID]))
+    return Response(app.get_player_count(request.form[RequestKeys.MAPUID]))
 
 
 ### Campaign ###
@@ -29,15 +38,17 @@ def get_map_player_count():
 
 @app.errorhandler(werkzeug.exceptions.BadRequest)
 def handle_bad_request(e):
-    return 'Bad request !\n'+str(e), 400
+    return 'Bad request !\n' + str(e), 400
+
 
 @app.errorhandler(werkzeug.exceptions.NotFound)
 def handle_not_found(e):
-    return 'Route or file not found !\n'+str(e), 404
+    return 'Route or file not found !\n' + str(e), 404
+
 
 @app.errorhandler(werkzeug.exceptions.InternalServerError)
 def handle_internal_server_error(e):
-    return 'Internal server error !\n'+str(e), 500
+    return 'Internal server error !\n' + str(e), 500
 
 
 if __name__ == "__main__":

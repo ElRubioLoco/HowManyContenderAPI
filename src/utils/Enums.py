@@ -1,9 +1,22 @@
 from enum import StrEnum
 
 class RequestKeys(StrEnum):
-    MAPID = "mapuid"
+    MAPUID = "mapuid"
     AUDIENCE = "audience"
     ERROR = "error"
+    ACCESSTOKEN = "accessToken"
+    REFRESHTOKEN = "refreshToken"
+    CONTENTTYPE = 'Content-Type'
+    AUTHORIZATION = 'Authorization'
+    USERAGENT = 'User-Agent'
+    UBIAPPID ='Ubi-AppId'
+    MESSAGE = "message"
+
+
+class NadeoResponsesKeys(StrEnum):
+    ERRORCODE = "errorCode"
+    MESSAGE = "message"
+    TICKET = "ticket"
 
 class Audiences(StrEnum):
     NADEOSERVICES = "NadeoServices"
