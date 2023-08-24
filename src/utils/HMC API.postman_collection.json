@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "9bea115d-0103-461d-9acf-e7c46e150185",
+		"name": "HMC API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26480495"
+	},
+	"item": [
+		{
+			"name": "In App",
+			"item": [
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/authenticate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh tokens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/refresh-tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"refresh-tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get player count",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mapuid",
+									"value": "7hk8IflYsbMbpJv2gyYzx48Zvt7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/how-many-contenders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"how-many-contenders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nadeo API Test",
+			"item": [
+				{
+					"name": "Get client routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{nadeoCoreUrl}}/api/routes?usage=Client",
+							"host": [
+								"{{nadeoCoreUrl}}"
+							],
+							"path": [
+								"api",
+								"routes"
+							],
+							"query": [
+								{
+									"key": "usage",
+									"value": "Client"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get server routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{nadeoCoreUrl}}/api/routes?usage=Server",
+							"host": [
+								"{{nadeoCoreUrl}}"
+							],
+							"path": [
+								"api",
+								"routes"
+							],
+							"query": [
+								{
+									"key": "usage",
+									"value": "Server"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get account zone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "nadeo_v1 t={{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aG93bWFueWNvbnRlbmRlcnNAZ21haWwuY29tOkhNQ3wmVWJpc29mdDEwMCU=",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "How many contenders / howmanycontenders@gmail.com",
+								"type": "text"
+							},
+							{
+								"key": "Ubi-AppId",
+								"value": "86263886-327a-4328-ac69-527f0d20a237",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{nadeoCoreUrl}}/accounts/{{accountId}}/zone",
+							"host": [
+								"{{nadeoCoreUrl}}"
+							],
+							"path": [
+								"accounts",
+								"{{accountId}}",
+								"zone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate step 1",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "aG93bWFueWNvbnRlbmRlcnNAZ21haWwuY29tOkhNQ3wmVWJpc29mdDEwMCU=",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "How many contenders / howmanycontenders@gmail.com",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Ubi-AppId",
+								"value": "86263886-327a-4328-ac69-527f0d20a237",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic aG93bWFueWNvbnRlbmRlcnNAZ21haWwuY29tOkhNQ3wmVWJpc29mdDEwMCU=",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "How many contenders / howmanycontenders@gmail.com",
+								"type": "text"
+							},
+							{
+								"key": "Ubi-AppId",
+								"value": "86263886-327a-4328-ac69-527f0d20a237",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{publicUbiServices}}/v3/profiles/sessions",
+							"host": [
+								"{{publicUbiServices}}"
+							],
+							"path": [
+								"v3",
+								"profiles",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate step 2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ubi_v1 t=ewogICJ2ZXIiOiAiMSIsCiAgImFpZCI6ICI4NjI2Mzg4Ni0zMjdhLTQzMjgtYWM2OS01MjdmMGQyMGEyMzciLAogICJlbnYiOiAiUHJvZCIsCiAgInNpZCI6ICJmNzRkZWY0NS0wMTA2LTQ1Y2UtYTE4Mi05MTUyMzdiNjVkZWEiLAogICJ0eXAiOiAiSldFIiwKICAiZW5jIjogIkExMjhDQkMiLAogICJpdiI6ICJHMFVXdmdraEVLN0FzWl9aaERTZUxnIiwKICAiaW50IjogIkhTMjU2IiwKICAia2lkIjogImM4NDU4Njg5LTIxNjgtNDZmZC1hY2RjLTliMzNjMzY2NGZiYSIKfQ.PIHB5kXPHvFMM21F9f0O3Ey2ZiFV1DVVogoqWyM-raWf_ajz-xOtFdfoSj_xUNMsxHUoXElrLOBTja-1H_88MQlhFsFVNp_JIDCg-eM6Lr3FpUMFOEtP74i0T8Xy5kPPZmdOc1gvZygwoSPPI9LTTJyRfP-c6xerXsh6q_NInqoHHf49856OmeGlXrYyKR_lPCSpI9KwSFDdrOCNZNpgbwrJxsjwjjZdiS5YiI3T4sfOTgPZJkEOwh75wPu1UjC5dv45Nc-pIjYHBODEbclEjRg9BSJJ82ytqwc9MZ7TuX8xLMFQe2CpMhelXvTbR3uW4LFe9O2wc5lfO-uuYKOHDskjWs-dv1CnLZL4puuRMPAXPScs90jfXfbs2LS7dSzhhTaLtd-SG2zuOM3nTFiV_dd2srnzhCAwXNt6GomU-XugGtwvRcx3QTMA9bxXFI4oJL62jnVR3zov5mJeCdQROl9k61Cq97ayFmXGzb0IWMn29WBlcs_HiwUqGnRSU3jo3_6w3VMc-Q-zHqiRSr5pZJ6JaYGqIvBKm9RlUkxh86Z2m9EIKYPvy21n0dSnZnuTqnoIvySLpW705a1qT_AfsemhYylHDVDDYbg1V49yhoxZJyIx-y5FVZvgUffB2gTXTjAoZ9dNpCqVEUa7oErVNhLdyyn9r-uVH75GPHlp5mexb0LxDUG1QAzfrWvpXmFilBzILtHRigiL5ilPoZEGmCtWTIcgv_lSg4me3tUmOpn4dCgIwpS2PrYtiCBp1cl0dU1XnIGrg7Opfi-3zmEz15P2Jr_grLHSUm9-BpFKhDuOBITpHfrX_LzFSgRLqpQIrsYyuZA4OV5et8K22ZNU0frMckOlqrotPTs97Qn-jNbHpVAN1euoT_oFDWxzM_yobazj33_RrR97rVe1ZxsOVDnQaHN2D6NhxHiwhwf61PWK6fj4ahR8lRFiopkTrylyP1HKoBdf23HhSr4b8Va3LfxjwX-IUU1Ekpx0g7B6tYoAK8_cYgaNvBX-nBcdNevzYOawnq55O3NFqbEtg4v_BeeP4bEpg7G0y8KPv_guYJuQnn4VwxF8gwII1VhF0k8UE5ErvkqcWLF7RgFjI_nNDahsXYkPArMz0ii2nIJ1ji058tN6ysqAMMSrfgsAWP2-mCIDeOciFmNKq62i-THcqTUJJg9D91ykZ6Zzt38iTckSOd1Lf_IzJGEoaB6Tv7lSySRr6SDDImRr_meZo26ehATYzJRmoTH4GtKhNv-usJsgeaVy_U_o7wJ8XH_xSxiDuc-MhEcrSrWiIB0bxXP2nV1jEeMezVa9K4bi477lHZsRLv51G7p6pDZ-FxFBK3Dicp1tF7wMaciCCuGdMSYFlI2RxOGCm_Sn779iSWgN34ACrMCjUHMrU7ere97qm9kFLBbqEx8z3JrpliTboDqAHezWMJDdL-R-eD7XBq7LgABM3-Idt6MnKeai_yqYy86M3N-hEcSzzURTkWXJNLRJmlIMgK7Q6_wf0vcYugjq0L04LFUkUgz7pEBjpEw7uOF2TbmsqoHtYG-iSO0-L5lIJ6gir51elCTmCoQx1tQ0QpbXlEAwCwuXEgrOBswKvdegye85KUybBRqGEeH5JrdX4GPDCXYqyXqNk_C2x5gPKOLXAHdUkUzfl6zqKDYort3IMhYakjM55JnezPGVUtP_Hk_ixV366WzFjUVW62WxQC3SD64oTvBWJvnASgHq41wYA2wxfaxv1vijuV1679n-8-e1WUplwFpzAkEfKXX70d5gXKKp8lanoSDF7qxYC8gE0rVnQkdPgz5cDN3ubLAc3qpXfMvBm2PgRgzi4_ZVKDutKI2at-D1vYKIT8vpAN95myAYhthoYBx3mRp1Vz8pz7aWe14KWm0NueLAyX3u4ks.fCp22Bi3yOLPoqiwpk8bonl5hFklh33ulM1AaY4bPOM",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "How many contenders / howmanycontenders@gmail.com",
+								"type": "text"
+							},
+							{
+								"key": "Ubi-AppId",
+								"value": "86263886-327a-4328-ac69-527f0d20a237",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "audience",
+								"value": "NadeoLiveServices",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{nadeoCoreUrl}}/v2/authentication/token/ubiservices",
+							"host": [
+								"{{nadeoCoreUrl}}"
+							],
+							"path": [
+								"v2",
+								"authentication",
+								"token",
+								"ubiservices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set account zone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{nadeoCoreUrl}}/accounts/{accountId}/zone",
+							"host": [
+								"{{nadeoCoreUrl}}"
+							],
+							"path": [
+								"accounts",
+								"{accountId}",
+								"zone"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8001"
+		},
+		{
+			"key": "nadeoCoreUrl",
+			"value": "https://prod.trackmania.core.nadeo.online"
+		},
+		{
+			"key": "accountId",
+			"value": "df213372-5ad5-429f-a480-3679cd0e1519"
+		},
+		{
+			"key": "publicUbiServices",
+			"value": "https://public-ubiservices.ubi.com"
+		},
+		{
+			"key": "accessToken",
+			"value": "eyJhbGciOiJIUzI1NiIsImVudiI6InRyYWNrbWFuaWEtcHJvZCIsInZlciI6IjEifQ.eyJqdGkiOiIwZDU1YjNhYy0zZGQ4LTExZWUtOTZjOC0wMjQyYWMxMTAwMDMiLCJpc3MiOiJOYWRlb1NlcnZpY2VzIiwiaWF0IjoxNjkyMzcwODY0LCJyYXQiOjE2OTIzNzI2NjQsImV4cCI6MTY5MjM3NDQ2NCwiYXVkIjoiTmFkZW9TZXJ2aWNlcyIsInVzZyI6IkNsaWVudCIsInNpZCI6IjBkNTViMTcyLTNkZDgtMTFlZS1iYmRiLTAyNDJhYzExMDAwMyIsInN1YiI6Ijk5MzkwMzM2LWU3MTItNDk5NS04ZjdjLWNlMDdlODAzMzQ3NSIsImF1biI6Ikhvd01hbnlDb250X0hNQyIsInJ0ayI6ZmFsc2UsInBjZSI6ZmFsc2UsInViaXNlcnZpY2VzX3VpZCI6IjQ0NDQyOTg1LTE3MDctNGViNy1iMjE5LWQ0MDc5MjUzNTllZiJ9.6dPPEL1JBDc8l9kA2MC7hunPARiuQBg-Nb4cGFe00C4",
+			"type": "string"
+		}
+	]
+}
