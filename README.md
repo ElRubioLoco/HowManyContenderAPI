@@ -7,31 +7,31 @@ Code for the server I use to get all data I need from Nadeo API
 
 1. Install python 3.11 
 
-```bash 
+```commandline 
 sudo apt install python3.11
 ```
 
 2. Install virtualenv
 
-```bash
+```commandline
 sudo apt install virtualenv
 ```
 
 3. Create virtual environment
 
-```bash
+```commandline
 virtualenv -p /usr/bin/python3.11 env
 ```
 
 4. Activate virtual environment
 
-```bash 
+```commandline 
 source env/bin/activate
  ```
 
 5. Install all requirements of the server
 
-```bash
+```commandline
  pip install -r requirements.txt
 ```
 
@@ -41,8 +41,42 @@ source env/bin/activate
 > <br>Email and password are the identifiers of the Ubisoft connect account you want to use
 
 7. Start server
-```bash
+```commandline
 python App.py
+```
+
+## Deploy to production
+
+1. Install build
+```commandline
+pip install -r src/utils/requirements.txt 
+```
+
+2. Build a wheel
+```commandline
+python -m build --wheel
+```
+
+3. Find the right ```.whl``` file
+> Available at ```dist/{project name}-{version}-{python tag} -{abi tag}-{platform tag}.whl```
+
+4. Copy this file to your production machine
+
+
+5. Set up a new virtualenv
+```commandline
+virtualenv -p /usr/bin/python3.11 env
+source env/bin/activate
+```
+
+6. Install your wheel file
+```commandline
+pip install your-wheel-file.whl
+```
+
+7. Run your WSGI server with ```waitress```
+```commandline
+waitress-serve --call 'flaskr:create_app'
 ```
 
 ## License

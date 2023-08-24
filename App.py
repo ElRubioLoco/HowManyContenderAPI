@@ -26,9 +26,14 @@ def refresh_tokens():
 
 ### Map ###
 
-@app.route("/map/playerCount", methods=[Methods.POST])
+@app.route("/how-many-contenders", methods=[Methods.POST])
 def get_map_player_count():
-    return Response(app.get_player_count(request.form[RequestKeys.MAPUID]))
+    mapuid = request.form[RequestKeys.MAPUID]
+    player_count = app.get_player_count(mapuid)
+    if RequestKeys.ERROR in player_count.keys():
+        return Response(prepare_to_send(player_count), 500)
+    print(request.origin, "asked for player count of", mapuid)
+    return Response(prepare_to_send(player_count), 200)
 
 
 ### Campaign ###
